@@ -2,7 +2,7 @@
 
 ###########    DEPRECATED    ###########
 
-import os
+
 import discord
 import sqlite3
 from discord import app_commands
@@ -36,7 +36,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS user_usage (
 db.commit()
 
 # === Bot Setup === #
-DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+DISCORD_TOKEN = "MTUxNTk2OTc5MzgwNTY1MjA4OQ.Grl57d.UKm4uvPYNgP7qxk5afUzaLMdogvLQG7270zuCg"
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix="!", intents=intents)
 
