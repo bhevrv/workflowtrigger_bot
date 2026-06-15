@@ -1,20 +1,6 @@
-name: Keep Service Alive
-
-on:
-  schedule:
-    - cron: '*/10 * * * *'  # every 10 minutes
-  workflow_dispatch:
-
-jobs:
-  ping:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send keepalive POST
-        uses: actions/http-client@v2
-        with:
-          url: ${{ secrets.WEBHOOK_URL }}
-          method: POST
-          headers: |
-            Content-Type: application/json
-            X-WEBHOOK-SECRET: ${{ secrets.WEBHOOK_SECRET }}
-          body: '{"note":"github-actions keepalive"}'
+      - name: Send keepalive POST (curl)
+        run: |
+          curl -fsS -X POST "${{ secrets.WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -H "X-WEBHOOK-SECRET: ${{ secrets.WEBHOOK_SECRET }}" \
+            -d '{"note":"github-actions keepalive"}'
