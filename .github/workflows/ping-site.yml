@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Send HTTP Request
         run: |
-          curl -I -s https://your-bot-app-name.onrender.com
+          curl -I -s https://workflowtrigger-bot-nnft.onrender.com/
